@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\HomeSliderController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\admin\AdminHomeController;
@@ -39,4 +40,10 @@ Route::controller(HomeSliderController::class)->group(function () {
     Route::post('/update/multi/image/{id}', 'UpdateMultiImage')->name('update.multi.image');
 
     Route::get('/delete/multi/image/{id}', 'DeleteMultiImage')->name('delete.multi.image');
+});
+ // Footer All Route
+ Route::controller(FooterController::class)->group(function () {
+    Route::get('/footer/setup', 'FooterSetup')->name('footer.setup');
+
+    Route::post('/update/footer', 'UpdateFooter')->name('update.footer');
 });
